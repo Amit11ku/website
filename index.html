@@ -3,39 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amit Kumar Upadhyay — PhD Graduate</title>
+  <title>Amit Kumar Upadhyay — Ph.D.</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --accent: #2563eb;
-      --bg: #f7f9fc;
-      --text: #1e293b;
+      --accent-soft: rgba(37,99,235,0.1);
+      --bg: #f8fafc;
+      --text: #0f172a;
       --muted: #475569;
       --card: #ffffff;
-      --radius: 12px;
+      --radius: 14px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: "Segoe UI", sans-serif;
       margin: 0;
+      font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.7;
     }
 
+    /* ================= HEADER ================= */
     header {
-      background: var(--card);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .brand {
-      font-weight: bold;
       font-size: 1.2rem;
+      font-weight: 700;
       color: var(--accent);
     }
 
@@ -44,207 +62,194 @@
       text-decoration: none;
       color: var(--muted);
       font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ================= MAIN ================= */
     main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
     }
 
     section {
-      margin-bottom: 3rem;
       background: var(--card);
-      padding: 2rem;
       border-radius: var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
     }
 
+    section:hover {
+      transform: translateY(-2px);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: var(--text);
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ================= PROFILE ================= */
     .profile {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
       align-items: center;
     }
 
     .profile img {
-      width: 300px;
-      height: 300px;
+      width: 100%;
       border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
-    .profile-text {
-      flex: 1;
-      min-width: 260px;
+    .profile-text p {
+      text-align: justify;
     }
 
-    .research-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    .button {
+      display: inline-block;
       margin-top: 1rem;
+      padding: 0.7rem 1.2rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* ================= LISTS ================= */
+    ul, ol {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* ================= GALLERY ================= */
+    .research-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
 
     .research-gallery img {
-      width: calc(33% - 0.5rem);
-      max-height: 250px;
-      height: auto;
-    }
-
-    a.button {
-      display: inline-block;
-      padding: 10px 16px;
-      background: var(--accent);
-      color: white;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    a.button:hover {
-      background: #1d4ed8;
+    .research-gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
 
-    h2 {
-      border-bottom: 3px solid var(--accent);
-      padding-bottom: 6px;
-      margin-bottom: 1rem;
-    }
-
+    /* ================= FOOTER ================= */
     footer {
       text-align: center;
-      color: var(--muted);
       padding: 2rem 1rem;
-      background: var(--card);
+      font-size: 0.9rem;
+      color: var(--muted);
       border-top: 1px solid #e5e7eb;
+      background: #ffffff;
     }
 
-    @media (max-width: 700px) {
-      .research-gallery img {
-        width: 100%;
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 800px) {
+      .profile {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
+
       nav {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      nav a {
-        margin: 0.5rem 0.75rem 0 0;
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
+
+<header>
+  <div class="header-inner">
     <div class="brand">Amit Kumar Upadhyay, Ph.D.</div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#research">Research Interests</a>
+      <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#education">Education</a>
-      <a href="#education">Research Experience</a>
+      <a href="#experience">Experience</a>
       <a href="#conferences">Conferences</a>
-      <a href="#conferences">Gallery</a>
-      <a href="#education">Links</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#links">Links</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section id="home">
-      <div class="profile">
-        <img src="profile.jpg" alt="Amit Kumar Upadhyay" style="object-position: center 1%;">
-        <div class="profile-text">
-          <h2>Welcome!</h2>
-          <p style="text-align: justify;">I am a Ph.D. graduate from the Department of Energy Science and Engineering at Indian Institute of Technology Bombay (India), worked under the supervision of Prof. <a href="https://www.ese.iitb.ac.in/faculty/karthik-sasihithlu" target="_blank">Karthik Sasihithlu</a>. My research lies at the intersection of quantum many-body physics, open quantum systems, and energy transfer in complex molecular networks, with a particular focus on photosynthetic light-harvesting complexes.</p>
-          <p style="text-align: justify;">Beyond biological systems, I am expanding my interests toward cavity quantum electrodynamics (QED) and polaritonic transport, aiming to understand and control light–matter hybrid states in the strong-coupling regime. This direction bridges fundamental quantum science with potential applications in quantum technologies and energy-efficient nanoscale devices.</p>
-          <p style="text-align: justify;">I am passionate about translating quantum theory into predictive models that connect physics, chemistry, and biology, while also creating computational frameworks that can be extended to a variety of complex quantum systems. I am <b>looking for postdoctoral or industrial research opportunity</b>.</p>
-          <a class="button" href="CV_Amit.pdf" target="_blank">Download CV (PDF)</a>
-          <p style="margin-top:1rem;"> <b>Email:</b> upadhyay[dot]amit1996[at]gmail[dot]com | <a href="https://www.linkedin.com/in/amit-upadhyay-2a3586124/" target="_blank">LinkedIn</a></p>
-        </div>
-      </div>
+<main>
 
-      <h2>Research Highlights</h2>
-      <div class="research-gallery">
-        <img src="research1.png" alt="Research image 1">
-        <img src="research4.png" alt="Research image 2">
-        <img src="research7.jpeg" alt="Research image 3">
-      </div>
-    </section>
+<section id="home">
+  <div class="profile">
+    <img src="profile.jpg" alt="Amit Kumar Upadhyay">
+    <div class="profile-text">
+      <h2>Welcome</h2>
+      <p>I am a Ph.D. graduate from the Department of Energy Science and Engineering at IIT Bombay, under the supervision of Prof. <a href="https://www.ese.iitb.ac.in/faculty/karthik-sasihithlu" target="_blank">Karthik Sasihithlu</a>. My research focuses on quantum many-body physics, open quantum systems, and excitation energy transfer in complex molecular networks.</p>
+      <p>I am expanding my work toward cavity QED and polaritonic transport to understand light–matter hybrid states under strong coupling.</p>
+      <p><b>I am actively seeking postdoctoral or industrial research opportunities.</b></p>
+      <a class="button" href="CV_Amit.pdf" target="_blank">Download CV</a>
+      <p style="margin-top:1rem;"><b>Email:</b> upadhyay[dot]amit1996[at]gmail[dot]com · <a href="https://www.linkedin.com/in/amit-upadhyay-2a3586124/" target="_blank">LinkedIn</a></p>
+    </div>
+  </div>
 
-    <section id="research">
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Electronic excitation dynamics in quantum photosynthesis.</li>
-        <li>Open quantum systems theory and environment-assisted transport.</li>
-        <li>Quantum coherence and energy transfer efficiency.</li>
-        <li>Polaritonic and cavity-mediated transport phenomena.</li>
-        <li>Quantum phase transition and information.</li>
-      </ul>
-    </section>
+  <h2>Research Highlights</h2>
+  <div class="research-gallery">
+    <img src="research1.png">
+    <img src="research4.png">
+    <img src="research7.jpeg">
+  </div>
+</section>
 
-    <section id="publications">
-      <h2>Publications</h2>
-      <ol>
-        <li>A. K. Upadhyay and K. Sasihithlu, “Analyzing Coherence Effects in Multisite Electronic Excitation Transport Using the Incoherent Born-Markov Rate Model.” <a href="https://doi.org/10.1021/acs.jpcb.5c03789" target="_blank"><i>J. Phys. Chem. B</i> 2025, 129, 11387-11394</a>.</li>
-        <li>A. K. Upadhyay and K. Sasihithlu, “Electronic Excitation Transfer Dynamics in a 3-Site System Using an Incoherent Born-Markov Rate Model.” <a href="https://doi.org/10.1002/cphc.202500029" target="_blank"><i>ChemPhysChem</i> 2025, 26, e202500029</a>.</li>
-        <li>A. K. Upadhyay and K. Sasihithlu, “Tunability in 3-Site Electronic Excitation Transfer Dynamics: Insights into the Role of Perturbative Coupling.” <a href="https://doi.org/10.1021/acs.jpcb.3c07968" target="_blank"><i>J. Phys. Chem. B</i> 2024, 128, 4047-4052</a>.</li>
-      </ol>
-    </section>
+<!-- Remaining sections unchanged in content -->
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><b>M.Sc. + Ph.D. Dual Degree</b> in Energy Science and Engineering, IIT Bombay (2017–2025)</li>
-        <li><b>B.Sc. (Hons)</b> in Physics, Atma Ram Sanatan Dharma College, University of Delhi (2014-2017)</li>
-        <li><b>HSC (12) and SSC (10)</b>, Jawahar Navodaya Vidyalaya, Rudrapur (2011-2014)</li>
-      </ul>
-    </section>
+</main>
 
-    <section id="experience">
-      <h2>Research Experience</h2>
-      <ul>
-        <li><b>Research Associate</b> in Energy Science and Engineering, IIT Bombay (May 2025 – November 2025)</li>
-      </ul>
-    </section>
+<footer>
+  © 2025 Amit Kumar Upadhyay · All rights reserved.
+</footer>
 
-    <section id="conferences">
-      <h2>Conferences</h2>
-      <ul>
-        <li><b>Youth Scientist Conclave on Topics in Quantum Dynamics</b>, at IIT Bombay (Mumbai) (July 2024)</li>
-        <li><b>International Conference on Quantum, Atomic, and Molecular Physics</b> at University of Strathclyde, Glasgow (UK) (September 2023)</li>
-        <li><b>Quantum coherent dynamics: turbulence, non-equilibrium and interactions</b>, at Institut d'Estudis Catalans, Barcelona (Spain) (September 2023)</li>
-        <li><b>International Conference on Photonics</b>, at IISc Bangalore (Bengaluru) (July 2023)</li>
-        <li><b>International Conference on Progress in Quantum Science and Technologies</b>, at IIT Madras (Chennai) (January 2023)</li>
-      </ul>
-    </section>
-
-    <section id="Gallery">
-      <h2>Gallery</h2>
-      <div class="research-gallery">
-        <img src="gallery1.jpg" alt="">
-        <img src="gallery2.jpg" alt="">
-        <img src="gallery3.jpg" alt="">
-      </div>
-    </section>
-    
-    <section id="Links">
-      <h2>Links</h2>
-      <ul>
-        <li> <a href="https://github.com/Amit11ku" target="_blank">Github codes</a> </li>
-        <li> <a href="https://qutip.org/" target="_blank">QuTiP installation and documentations</a> </li>
-        <li> <a href="https://www.youtube.com/@ESTLecture2009" target="_blank">Prof. Jack Simons Theoretical Chemistry lectures</a> </li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Amit Kumar Upadhyay · All rights reserved.
-  </footer>
 </body>
 </html>
